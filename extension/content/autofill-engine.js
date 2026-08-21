@@ -121,26 +121,18 @@
     if (value === undefined || value === "") return "skipped";
 
     if (value === "__ATTACHMENT__") {
-      const resumeMeta = await JH.getResumeMeta();
-      await JH.queuePendingAction({
-        type: "attach-file",
-        url: location.href,
-        filePath: resumeMeta && resumeMeta.mirroredPath,
-        fieldDescription: `the ${m.category.replace(/_/g, " ")} field`,
-      });
+      JH.showToast(
+        `job-hunter: found the ${m.category.replace(/_/g, " ")} field — ask Claude to attach your resume, it can do this live.`
+      );
       return "needs-attachment";
     }
 
     const inputType = JH.detectInteractionType(m.element);
     const result = await JH.setFieldValue(m.element, inputType, value);
     if (result === "needs-attachment") {
-      const resumeMeta = await JH.getResumeMeta();
-      await JH.queuePendingAction({
-        type: "attach-file",
-        url: location.href,
-        filePath: resumeMeta && resumeMeta.mirroredPath,
-        fieldDescription: `the ${m.category.replace(/_/g, " ")} field`,
-      });
+      JH.showToast(
+        `job-hunter: found the ${m.category.replace(/_/g, " ")} field — ask Claude to attach your resume, it can do this live.`
+      );
       return "needs-attachment";
     }
     return result ? "filled" : "failed";

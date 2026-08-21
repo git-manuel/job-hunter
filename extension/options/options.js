@@ -255,8 +255,6 @@
 
   function describePendingAction(action) {
     switch (action.type) {
-      case "attach-file":
-        return `Attach a file to ${action.fieldDescription}`;
       case "draft-cover-letter":
         return `Draft a cover letter for ${action.companyDisplayName}`;
       case "draft-email":

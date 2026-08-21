@@ -1,5 +1,9 @@
 # Gotchas (hard-won, this session)
 
+## The `pendingActions` queue is only for content Claude must generate — never for file attachments
+
+User requirement (2026-08-21): `pendingActions` should only ever hold `draft-email` and `message-profile` (and cover-letter *drafting*, `draft-cover-letter`) — never `attach-file`. Previously, `autofill-engine.js`'s `fillMatchedField` and `cover-letter.js`'s cached-PDF path both called `JH.queuePendingAction({type: "attach-file", ...})` whenever a file input was found, on the theory that Claude would resolve it "next time you check in." The user pushed back after noticing a stale `attach-file` entry sitting in the Pending tab — the fix isn't a smarter queue, it's not queuing at all: a file attachment is a single-turn action once Claude is actually asked (`mcp__claude-in-chrome__file_upload` on the live page, same pattern as attaching a resume to a Gmail draft — see the two Gmail-related gotchas below), so there's no reason to defer it to an async queue the way drafting an email or a cover letter genuinely needs to be deferred. Both call sites now just `JH.showToast(...)` telling the user to ask Claude directly instead of calling `queuePendingAction`; `options.js`'s `describePendingAction` no longer has an `"attach-file"` case since one will never appear. If a future feature is tempted to queue a pending action for something Claude could just do live in the current turn, don't — reserve the queue for things that need Claude in a *separate*, later turn.
+
 ## Browser-automation tool limits (mcp__claude-in-chrome__*) — read this before assuming Claude can test something
 
 These were each discovered the hard way and cost real debugging time. **Claude cannot:**

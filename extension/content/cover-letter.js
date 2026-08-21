@@ -22,14 +22,8 @@
     if (existing && existing.ok && existing.payload) {
       const record = existing.payload;
       if (isFileField(field)) {
-        await JH.queuePendingAction({
-          type: "attach-file",
-          url: location.href,
-          filePath: record.mirroredPath,
-          fieldDescription: "the cover letter field",
-        });
         JH.showToast(
-          `job-hunter: queued attaching the cached cover letter for ${record.companyDisplayName} — Claude will pick this up next time you check in.`
+          `job-hunter: found the cover letter field — ask Claude to attach the cached cover letter for ${record.companyDisplayName}, it can do this live.`
         );
       } else {
         JH.setFieldValue(field, field.tagName === "TEXTAREA" ? "textarea" : "text", record.plainText);
