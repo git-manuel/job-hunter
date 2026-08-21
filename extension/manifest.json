@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Job Hunter Assistant",
-  "version": "0.5.16",
+  "version": "0.5.17",
   "description": "Autofill, resume/cover-letter attachment, and recruiter-contact assistant for manual job hunting.",
   "icons": {
     "16": "icons/icon16.png",

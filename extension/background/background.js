@@ -179,6 +179,7 @@ chrome.runtime.onInstalled.addListener(() => {
     id: "job-hunter-draft-email",
     title: "JH - Draft email with resume",
     contexts: ["link"],
+    targetUrlPatterns: ["mailto:*"],
   });
   chrome.contextMenus.create({
     id: "job-hunter-message-profile",
