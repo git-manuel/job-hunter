@@ -1,0 +1,22 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="url(#bg)"/>
+
+  <!-- briefcase -->
+  <rect x="30" y="58" width="52" height="38" rx="6" fill="#FFFFFF"/>
+  <rect x="46" y="48" width="20" height="12" rx="3" fill="none" stroke="#FFFFFF" stroke-width="5"/>
+  <rect x="30" y="72" width="52" height="8" fill="#1D4ED8"/>
+
+  <!-- magnifying glass -->
+  <circle cx="82" cy="46" r="19" fill="none" stroke="#FFFFFF" stroke-width="7"/>
+  <line x1="95.5" y1="59.5" x2="108" y2="72" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- checkmark inside the lens -->
+  <path d="M74 46 L80 52 L91 39" fill="none" stroke="#22C55E" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

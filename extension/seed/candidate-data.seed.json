@@ -1,0 +1,167 @@
+{
+  "contact": {
+    "full_name": "Manuel Almeida",
+    "email": "manuelmbda@gmail.com",
+    "phone": "+5521982269642",
+    "location": "Rio de Janeiro, Brazil",
+    "linkedin": "linkedin.com/in/manuelit",
+    "github": null,
+    "portfolio": null
+  },
+  "headline": "Senior Software Engineer",
+  "summary": "Senior Full Stack Engineer with 8+ years of experience designing, building, and scaling cloud-native applications across fintech, banking, SaaS, and telecommunications. Deep expertise in distributed systems, microservices, and cloud infrastructure, with a track record of delivering highly available services and modernizing legacy platforms. Comfortable owning technical initiatives end-to-end: architecting systems, tuning performance, mentoring engineers, resolving production incidents, and AI engineering.",
+  "core_competencies": [
+    "Backend Development",
+    "Java & Spring Boot",
+    "Distributed Systems",
+    "Microservices Architecture",
+    "REST API Design",
+    "GraphQL",
+    "Cloud Architecture (AWS)",
+    "Docker & Kubernetes",
+    "Event-Driven Systems",
+    "System Design",
+    "Performance Optimization",
+    "CI/CD",
+    "Production Troubleshooting",
+    "Technical Leadership",
+    "Mentoring",
+    "Clean Architecture",
+    "SOLID Principles",
+    "Design Patterns",
+    "Test-Driven Development (TDD)",
+    "Agile Development",
+    "AI Engineering",
+    "LLMs"
+  ],
+  "skills": {
+    "languages": ["Java", "Kotlin", "Go", "Python", "TypeScript", "JavaScript"],
+    "backend": ["Spring Boot", "Spring WebFlux", "Java EE", "NodeJS", "FastAPI", "JPA/Hibernate", "REST APIs", "GraphQL", "Microservices"],
+    "frontend": ["React", "HTML5", "CSS3", "Tailwind CSS", "Vite", "Jest"],
+    "cloud_devops": ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "Terraform", "Jenkins", "GitLab CI", "Buildkite"],
+    "messaging": ["Kafka", "RabbitMQ", "SQS"],
+    "databases": ["PostgreSQL", "MySQL", "Oracle", "DynamoDB", "MongoDB", "Redis"],
+    "ai_engineering": ["LLM Applications", "AI Agents", "Claude Code", "Model Context Protocol (MCP)", "Agentic AI Workflows", "AI-assisted Development"],
+    "testing": ["JUnit", "Unit Testing", "Integration Testing", "TDD"],
+    "engineering_practices": ["Clean Architecture", "SOLID Principles", "Design Patterns", "Git", "Scrum", "Agile"],
+    "operating_systems": ["Linux", "Windows", "MacOS"]
+  },
+  "experience": [
+    {
+      "company": "Jdoodle",
+      "role": "Software Engineer",
+      "start_date": "2024-05",
+      "end_date": "2026-05",
+      "location": "Remote",
+      "bullets": [
+        "Led the architectural redesign of the company's cloud-based Web IDE around Docker-based containerized services, reducing cloud infrastructure costs by 20% while improving scalability and maintainability.",
+        "Integrated Stripe to support subscriptions, coupons, and regional pricing, enabling new pricing tiers and flexible monetization strategies.",
+        "Built high-throughput reactive streaming APIs using Spring WebFlux for AI-powered services, achieving sub-100 ms response latency while supporting over 5,000 concurrent streaming connections.",
+        "Built a collaborative code editing feature using Node.js, MongoDB, and Yjs, increasing user engagement by 25% through seamless multi-user collaboration.",
+        "Built concurrent backend services in Go using goroutines and channels, enabling efficient processing of high-volume workloads in a multi-threaded environment.",
+        "Integrated Azure Active Directory using OAuth 2.0 and OpenID Connect, improving secure access and streamlining user authentication workflows.",
+        "Developed a Python FastAPI service to automate cloud infrastructure provisioning for the \"Vibing Code\" tool."
+      ]
+    },
+    {
+      "company": "Whispir",
+      "role": "Software Engineer",
+      "start_date": "2023-04",
+      "end_date": "2024-04",
+      "location": "Remote",
+      "bullets": [
+        "Led the migration of a mission-critical SMS platform from a monolithic architecture to Java 17 microservices on Kubernetes, eliminating message delivery status loss during callback processing, accelerating deployment speed by 75%, and reducing monthly lost delivery status callbacks from over 1 million to zero.",
+        "Identified and resolved memory leaks using New Relic and heap analysis, reducing GC overhead and improving p90 latency from above 100ms to 45ms.",
+        "Designed and implemented CI/CD pipelines with Buildkite, automating build, test, and deployment processes to enable reliable daily releases.",
+        "Directed root-cause analysis for high-priority production incidents, implementing permanent structural fixes that decreased recurring issues.",
+        "Built React-based single-page application features for the contact list management system."
+      ]
+    },
+    {
+      "company": "Koin",
+      "role": "Software Engineer",
+      "start_date": "2020-12",
+      "end_date": "2023-04",
+      "location": "Remote",
+      "bullets": [
+        "Designed and implemented scalable event-driven Java/Kotlin microservices to automate BNPL (Buy Now Pay Later) commission settlement workflow, replacing manual reconciliation with asynchronous message processing and improving processing reliability and operational accuracy.",
+        "Mentored junior engineers through pair programming, architecture discussions, and code reviews, contributing to their technical growth and career development.",
+        "Integrated the WhatsApp Business API to automate previously manual messaging workflows, replacing cellphone-based processes and significantly improving operational efficiency.",
+        "Developed and enhanced React-based single-page application (SPA) features for the BNPL management platform, delivering responsive, maintainable interfaces for merchant and operations teams.",
+        "Standardized API documentation using Swagger and ReadMe hosted portal, streamlining partner onboarding and API integration."
+      ]
+    },
+    {
+      "company": "PagBank",
+      "role": "Software Engineer",
+      "start_date": "2020-01",
+      "end_date": "2020-11",
+      "location": "Remote",
+      "bullets": [
+        "Developed Mastercard ISO 8583 pre-authorization capabilities for high-volume payment processing systems.",
+        "Implemented AES encryption for the POS simulator, ensuring PCI DSS compliance and improving the security and reliability of payment testing.",
+        "Built Splunk dashboards and proactive alerting, improving production observability and reducing mean time to detection (MTTD).",
+        "Increased backend test coverage to 80% by implementing comprehensive unit and integration tests, reducing production defects and improving release confidence.",
+        "Applied Clean Code principles and design patterns across backend services, improving code maintainability and accelerating onboarding for new engineers."
+      ]
+    },
+    {
+      "company": "Marlo",
+      "role": "Software Engineer",
+      "start_date": "2018-09",
+      "end_date": "2019-12",
+      "location": "Remote",
+      "bullets": [
+        "Developed RESTful APIs using Java and Spring Boot for an e-commerce platform.",
+        "Improved application performance through targeted caching strategies and database query optimization, reducing API response latency.",
+        "Integrated Slack webhook notifications into operational workflows, improving production monitoring and reducing incident response time.",
+        "Provisioned and managed Google Cloud Platform (GCP) infrastructure using Terraform, developing reusable Infrastructure as Code (IaC) modules to enable consistent, version-controlled deployments across environments."
+      ]
+    },
+    {
+      "company": "BNDES Bank",
+      "role": "Software Engineer Intern",
+      "start_date": "2015-01",
+      "end_date": "2016-07",
+      "location": "Rio de Janeiro, Brazil",
+      "bullets": [
+        "Developed backend functionality for financial processing systems using Java and mainframe technologies.",
+        "Executed and maintained batch jobs supporting daily financial transactions.",
+        "Resolved frontend defects using JavaScript and jQuery in support of legacy production systems."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universidade Federal Fluminense",
+      "degree": "Bachelor of Computer Science (Honors)",
+      "start_date": "2012",
+      "end_date": "2016"
+    }
+  ],
+  "professional_development": [
+    "Claude Code Bootcamp: Hooks, MCP & Agentic AI Workflows — Udemy (10.5 hrs, Instructor: Madan Reddy) — Completed June 2026",
+    "General English (24 weeks) — Ability English, Melbourne, Australia (May 2017 – Oct 2017)",
+    "Front-End Development (300 Hours) — freeCodeCamp — Completed February 2017",
+    "Technical Reading: Clean Architecture (Robert C. Martin), Spring in Action 6th Edition (Craig Walls), System Design Interview (Alex Xu), Clean Code (Robert C. Martin)"
+  ],
+  "languages": [
+    { "name": "Portuguese", "level": "Native" },
+    { "name": "English", "level": "Fluent" }
+  ],
+  "compensation": {
+    "salary_floor_usd_monthly": 4000,
+    "salary_floor_brl_monthly": 15000,
+    "salary_floor_eur_monthly": 3471,
+    "rule": "Use the HIGHER of the applicable floor above or the top of any range stated in the job post. English/Spanish descriptions (typically foreign companies) -> USD floor. Portuguese descriptions -> BRL floor. Euro-denominated -> EUR floor. If a form or recruiter asks for an hourly rate instead, convert from whichever monthly figure applies (assume a standard 160 working hours/month for the conversion)."
+  },
+  "work_authorization": {
+    "status": "Brazilian citizen — no visa/sponsorship needed to work remotely for foreign employers as an independent contractor or employee",
+    "notice_period": "1 week",
+    "visa_notes": null
+  },
+  "preferences": {
+    "remote_only": true,
+    "target_locations": ["Brazil", "LATAM", "Remote-Global"]
+  }
+}

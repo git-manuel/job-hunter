@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Job Hunter Assistant — Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <header>
+    <img src="../icons/icon48.png" alt="">
+    <h1>Job Hunter Assistant</h1>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="resume">Resume</button>
+    <button class="tab-btn" data-tab="cover-letter">Cover Letter</button>
+    <button class="tab-btn" data-tab="candidate-data">Candidate Data</button>
+    <button class="tab-btn" data-tab="templates">Email/DM Template</button>
+    <button class="tab-btn" data-tab="pending">Pending <span id="pending-count-badge"></span></button>
+    <button class="tab-btn" data-tab="field-categories">Field Categories</button>
+  </nav>
+
+  <main>
+    <!-- ===================== Resume ===================== -->
+    <section id="tab-resume" class="tab-panel active">
+      <h2>Resume</h2>
+
+      <div class="card" id="resume-current">
+        <p id="resume-empty-state">No resume uploaded yet.</p>
+        <dl id="resume-meta-view" hidden>
+          <dt>File</dt><dd id="resume-filename"></dd>
+          <dt>Uploaded</dt><dd id="resume-uploaded-at"></dd>
+          <dt>Size</dt><dd id="resume-size"></dd>
+        </dl>
+      </div>
+
+      <div class="card">
+        <label class="field-label" for="resume-file-input">Replace resume</label>
+        <input type="file" id="resume-file-input" accept="application/pdf">
+        <p id="resume-status" class="status"></p>
+      </div>
+    </section>
+
+    <!-- ===================== Cover Letter ===================== -->
+    <section id="tab-cover-letter" class="tab-panel">
+      <h2>Cover Letter</h2>
+      <p class="hint">Tailored per company by Claude, generated once, cached forever after — zero AI on reuse.</p>
+
+      <div class="card">
+        <label class="toggle-row">
+          <input type="checkbox" id="auto-generate-toggle">
+          <span>Auto-generate cover letter when a form has a cover-letter field</span>
+        </label>
+      </div>
+
+      <div class="card">
+        <table id="cover-letter-table">
+          <thead>
+            <tr><th>Company</th><th>Generated</th><th></th></tr>
+          </thead>
+          <tbody id="cover-letter-rows"></tbody>
+        </table>
+        <p id="cover-letter-empty" class="hint">No cover letters generated yet.</p>
+      </div>
+    </section>
+
+    <!-- ===================== Candidate Data ===================== -->
+    <section id="tab-candidate-data" class="tab-panel">
+      <h2>Candidate Data</h2>
+      <p class="hint">Pre-filled from your resume. Source of truth for autofill and cover-letter drafting — edit any field directly, changes save automatically. Leave a field blank rather than guessing.</p>
+      <p id="candidate-data-status" class="status"></p>
+
+      <form id="candidate-data-form">
+        <fieldset>
+          <legend>Contact</legend>
+          <label>Full name <input name="contact.full_name" type="text"></label>
+          <label>Email <input name="contact.email" type="email"></label>
+          <label>Phone <input name="contact.phone" type="text"></label>
+          <label>Location <input name="contact.location" type="text"></label>
+          <label>LinkedIn <input name="contact.linkedin" type="text"></label>
+          <label>GitHub <input name="contact.github" type="text"></label>
+          <label>Portfolio <input name="contact.portfolio" type="text"></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Headline &amp; Summary</legend>
+          <label>Headline <input name="headline" type="text"></label>
+          <label>Summary <textarea name="summary" rows="4"></textarea></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Core Competencies <span class="hint">(comma-separated)</span></legend>
+          <textarea name="core_competencies" rows="3" data-list="true"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>Skills <span class="hint">(comma-separated per category)</span></legend>
+          <label>Languages <input name="skills.languages" type="text" data-list="true"></label>
+          <label>Backend <input name="skills.backend" type="text" data-list="true"></label>
+          <label>Frontend <input name="skills.frontend" type="text" data-list="true"></label>
+          <label>Cloud/DevOps <input name="skills.cloud_devops" type="text" data-list="true"></label>
+          <label>Messaging <input name="skills.messaging" type="text" data-list="true"></label>
+          <label>Databases <input name="skills.databases" type="text" data-list="true"></label>
+          <label>AI Engineering <input name="skills.ai_engineering" type="text" data-list="true"></label>
+          <label>Testing <input name="skills.testing" type="text" data-list="true"></label>
+          <label>Engineering Practices <input name="skills.engineering_practices" type="text" data-list="true"></label>
+          <label>Operating Systems <input name="skills.operating_systems" type="text" data-list="true"></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Experience</legend>
+          <div id="experience-list"></div>
+          <p class="hint">Edit experience entries as JSON for now — a full per-job editor is a future refinement.</p>
+          <textarea name="experience" rows="10" data-json="true"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>Education <span class="hint">(JSON)</span></legend>
+          <textarea name="education" rows="4" data-json="true"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>Professional Development <span class="hint">(one per line)</span></legend>
+          <textarea name="professional_development" rows="4" data-list="true" data-list-sep="\n"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>Languages <span class="hint">(JSON)</span></legend>
+          <textarea name="languages" rows="3" data-json="true"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>Compensation</legend>
+          <label>Salary floor USD/month <input name="compensation.salary_floor_usd_monthly" type="number"></label>
+          <label>Salary floor BRL/month <input name="compensation.salary_floor_brl_monthly" type="number"></label>
+          <label>Salary floor EUR/month <input name="compensation.salary_floor_eur_monthly" type="number"></label>
+          <label>Rule <textarea name="compensation.rule" rows="3"></textarea></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Work Authorization</legend>
+          <label>Status <textarea name="work_authorization.status" rows="2"></textarea></label>
+          <label>Notice period <input name="work_authorization.notice_period" type="text"></label>
+          <label>Visa notes <input name="work_authorization.visa_notes" type="text"></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Preferences</legend>
+          <label class="toggle-row"><input name="preferences.remote_only" type="checkbox"> Remote only</label>
+          <label>Target locations <input name="preferences.target_locations" type="text" data-list="true"></label>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- ===================== Templates ===================== -->
+    <section id="tab-templates" class="tab-panel">
+      <h2>Email / DM Template</h2>
+      <p class="hint">One shared message, used for both email and LinkedIn DM. Placeholders: <code>{{company}}</code>, <code>{{recruiter_name}}</code>, <code>{{role_title}}</code>. Email subject is generated automatically — no need to set one. Changes save automatically.</p>
+      <p id="templates-status" class="status"></p>
+
+      <textarea id="message-template-body" rows="10"></textarea>
+    </section>
+
+    <!-- ===================== Pending ===================== -->
+    <section id="tab-pending" class="tab-panel">
+      <h2>Pending</h2>
+      <p class="hint">Things this page couldn't finish on its own (learning a new form, drafting a cover letter, sending an email/DM with an attachment) — everything Claude needs is already recorded here. Just check in with Claude and it resolves each one and clears it from this list automatically; no need to type any details.</p>
+
+      <div class="card">
+        <table id="pending-table">
+          <thead>
+            <tr><th>Type</th><th>Where</th><th>Queued</th><th></th></tr>
+          </thead>
+          <tbody id="pending-rows"></tbody>
+        </table>
+        <p id="pending-empty" class="hint">Nothing pending.</p>
+      </div>
+    </section>
+
+    <!-- ===================== Field Categories ===================== -->
+    <section id="tab-field-categories" class="tab-panel">
+      <h2>Field Categories</h2>
+      <p class="hint">How autofill recognizes a form field — no AI, purely local pattern matching. Each row is one category: what candidate data it fills in, and the alternate wordings (any language) that should trigger it. Edit aliases directly; changes save automatically. This list also grows automatically whenever you resolve an unrecognized field via the on-page prompt.</p>
+
+      <div class="card">
+        <table id="category-table">
+          <thead>
+            <tr><th>Category</th><th>Source</th><th>Value</th><th>Aliases (comma-separated)</th><th></th></tr>
+          </thead>
+          <tbody id="category-rows"></tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <button id="add-category-toggle" type="button">+ Add category</button>
+        <div id="add-category-form" hidden>
+          <label>Category id <input type="text" id="new-category-id" placeholder="e.g. drivers_license"></label>
+          <label>Value <textarea id="new-category-value" rows="2"></textarea></label>
+          <label>First alias <input type="text" id="new-category-alias" placeholder="e.g. driver's license number"></label>
+          <button id="add-category-submit" type="button" class="primary">Add</button>
+          <p id="category-status" class="status"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../shared/storage-schema.js"></script>
+  <script src="../shared/template-engine.js"></script>
+  <script src="../shared/field-categories.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

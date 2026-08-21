@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>job-hunter icon rasterizer</title>
+<style>
+  body { font-family: system-ui, sans-serif; padding: 24px; background: #f4f4f5; }
+  .row { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+  canvas { border: 1px solid #ddd; background: #fff; }
+  a { padding: 6px 12px; background: #1D4ED8; color: #fff; border-radius: 6px; text-decoration: none; }
+</style>
+</head>
+<body>
+<h1>job-hunter icon rasterizer</h1>
+<p>Loads <code>source/icon.svg</code>, draws it onto a canvas at each required size, and offers a
+download link for each PNG. Open this file directly in Chrome and click each "Download" link,
+saving into <code>extension/icons/</code> as <code>iconNN.png</code>.</p>
+<div id="rows"></div>
+<script>
+const sizes = [16, 32, 48, 128];
+const rows = document.getElementById("rows");
+
+fetch("source/icon.svg")
+  .then(r => r.text())
+  .then(svgText => {
+    const blob = new Blob([svgText], { type: "image/svg+xml" });
+    const url = URL.createObjectURL(blob);
+    const img = new Image();
+    img.onload = () => {
+      for (const size of sizes) {
+        const canvas = document.createElement("canvas");
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, size, size);
+
+        const row = document.createElement("div");
+        row.className = "row";
+        const label = document.createElement("span");
+        label.textContent = `${size}x${size}`;
+        const link = document.createElement("a");
+        link.textContent = "Download";
+        link.download = `icon${size}.png`;
+        link.href = canvas.toDataURL("image/png");
+        row.append(label, canvas, link);
+        rows.append(row);
+      }
+    };
+    img.src = url;
+  });
+</script>
+</body>
+</html>

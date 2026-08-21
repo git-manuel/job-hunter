@@ -1,0 +1,4 @@
+{
+  "subject": "Application | {{role_title}}",
+  "body": "Hi {{recruiter_name}},\n\nI'm interested in the {{role_title}}. I'm a Senior Software Engineer with 10+ years of experience in Java/Spring Boot, distributed systems, cloud infrastructure, and AI engineering - my resume is attached with more detail on my background.\n\nPlease let me know if you'd like to schedule a call to discuss further.\n\nBest regards,\nManuel Almeida\nmanuelmbda@gmail.com | +55 21 98226-9642 | linkedin.com/in/manuelit"
+}

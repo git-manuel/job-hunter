@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "Job Hunter Assistant",
+  "version": "0.5.16",
+  "description": "Autofill, resume/cover-letter attachment, and recruiter-contact assistant for manual job hunting.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage", "unlimitedStorage", "contextMenus", "downloads"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Job Hunter Assistant — open settings"
+  },
+  "options_page": "options/options.html",
+  "commands": {
+    "auto-complete": {
+      "suggested_key": { "default": "Ctrl+Shift+U" },
+      "description": "Trigger JH - Auto Complete on the current page"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "shared/storage-schema.js",
+        "shared/template-engine.js",
+        "shared/field-categories.js",
+        "shared/selector-fill.js",
+        "content/agent-bridge.js",
+        "content/field-scanner.js",
+        "content/category-modal.js",
+        "content/cover-letter.js",
+        "content/autofill-engine.js",
+        "content/contact-actions.js"
+      ],
+      "css": ["content/category-modal.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.linkedin.com/*"],
+      "js": ["shared/storage-schema.js", "content/linkedin-highlight.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

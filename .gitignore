@@ -1,0 +1,19 @@
+### IDE ###
+.idea/
+.vscode/
+
+### Claude Code local-only state ###
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+
+### Node (icon/vendor tooling only — not shipped in the extension) ###
+extension/node_modules/
+npm-debug.log*
+
+### OS ###
+.DS_Store
+Thumbs.db
+
+### Packaged extension build output (extension.pem is a private signing key — never commit it) ###
+extension.crx
+extension.pem
